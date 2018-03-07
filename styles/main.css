@@ -1,0 +1,23 @@
+
+
+input[type="text"] {
+  border-radius: 4px;
+  border: 1px solid #4b0082;
+  padding: 8px;
+  box-sizing: border-box;
+  width: auto;
+  display: inline-block;
+
+}
+
+label[for="newToDoText"] {
+  display: inline-block;
+}
+
+/* I intend to align text "New To-Do" and the rest of the form field by
+using 'inline-block' for label and input elements, it does not seem to work */
+
+label {
+  font-size: 16px;
+  color: grey;
+}
