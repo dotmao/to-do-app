@@ -2,6 +2,7 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm')
   const newToDoText = document.getElementById('newToDoText')
   const toDoList = document.getElementById('toDoList')
+  const deleteButton = document.getElementById('deleteButton') //access the element deleteButton
 
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault(); /*the default behavior is for the page to reload, therefore we need to prevent Default */
@@ -27,8 +28,16 @@ function onReady() {
 
   });
 
+//deleteButton
+  deleteButton.addEventListener('click', function() {
+
+
+  }
+
+)
+
 }
-/* assign variables using const */
+
 
 window.onload = function() {
   onReady();
