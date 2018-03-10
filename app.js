@@ -18,10 +18,10 @@ function onReady() {
     checkbox.type = "checkbox";
 
     //set the title
-    newLi.textContent = "title";
+    newLi.textContent = title;
     //attach the checkbox to the li
     newLi.appendChild(checkbox);
-    toDolist.appendChild(newLi);
+    toDoList.appendChild(newLi);
 
     //empty the input
     newToDoText.value = '';
@@ -30,11 +30,17 @@ function onReady() {
 
 //deleteButton
   deleteButton.addEventListener('click', function() {
+    event.preventDefault();
+
+    for (i=toDoList.children.length-1; i>=0; i--) {
+      if (toDoList.children[i].children[0]) {
+        toDoList.removeChild(toDoList.children[i])
+      }
+
+    }
 
 
-  }
-
-)
+  });
 
 }
 
