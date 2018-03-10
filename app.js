@@ -28,7 +28,7 @@ function onReady() {
 
   });
 
-//deleteButton
+//deleteButtonFuction???
   deleteButton.addEventListener('click', function() {
     event.preventDefault();
 
