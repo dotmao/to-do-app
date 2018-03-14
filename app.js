@@ -1,8 +1,8 @@
 function onReady() {
-//   const addToDoForm = document.getElementById('addToDoForm')
+// const addToDoForm = document.getElementById('addToDoForm')
 //   const newToDoText = document.getElementById('newToDoText')
 //   const toDoList = document.getElementById('toDoList')
-//   const deleteButton = document.getElementById('deleteButton') //access the element deleteButton
+//   //const deleteButton = document.getElementById('deleteButton') //access the element deleteButton
 //
 //   addToDoForm.addEventListener('submit', event => {
 //     event.preventDefault(); /*the default behavior is for the page to reload, therefore we need to prevent Default */
@@ -27,8 +27,8 @@ function onReady() {
 //     newToDoText.value = '';
 //
 //   });
-//
-// //deleteButtonFuction???
+// /
+// deleteButtonFuction???
 //   deleteButton.addEventListener('click', function() {
 //     event.preventDefault();
 //
@@ -41,22 +41,21 @@ function onReady() {
 //
 //
 //   });
-
+// <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="deleteButton">Delete</button>
   const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-// add deleteButton and render the UI
-// const deleteButton = document.getElementById('deleteButton'); ???
-// let id = 0; ???
+  let id = 0;
 
-  function createNewToDo(){
+  function createNewToDo() {
     const newToDoText = document.getElementById('newToDoText');
+
 
     if (!newToDoText.value) { return; }
 
-    toDos.push({
+    toDos.push ({
       title: newToDoText.value,
-      complete: false  //since it is a new 'todo', mark checkbox complete function needs to be off
-    // id: how to show store the value of id???
+      complete: false,  //since it is a new 'todo', mark checkbox complete function needs to be off
+      id: ++i // increment id variable
     });
     newToDoText.value = ''; //clear the text field for users
 
@@ -67,24 +66,42 @@ function onReady() {
   function renderTheUI() {
     const toDoList = document.getElementById('toDoList');
 
+
     toDoList.textContent = ''; //set it as a empty value in the beginning before user input anything.
 
     toDos.forEach(function(toDo){
       const newLi = document.createElement('li');  //creating new li
       const checkbox = document.createElement('input');  //assign the toDo's title text to the li
+      const deleteButton = document.createElement('button');
       checkbox.type = "checkbox";
+
 
       newLi.textContent = toDo.title;
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
+      newLi.appendChild(deleteButton);
+
     });
   }
 
   addToDoForm.addEventListener('submit', event => {
-    event.preventDefault();
+
     createNewToDo();
 
+    event.preventDefault();
   })
+
+  deleteButton.addEventListener('click', function() {
+    event.preventDefault();
+
+    const toRemoveId = 1;
+    const filteredTodos = toDos.filter(todos => toDos.id !==id toRemoveId);
+  }
+)
+
+
+
+
 
 }
 
