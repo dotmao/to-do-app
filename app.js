@@ -56,7 +56,7 @@ function onReady() {
     toDos.push ({
       title: newToDoText.value,
       complete: false,  //since it is a new 'todo', mark checkbox complete function needs to be off
-      id: ++i // increment id variable
+      id: id++ // increment id variable
     });
     newToDoText.value = ''; //clear the text field for users
 
@@ -73,43 +73,43 @@ function onReady() {
     toDos.forEach(function(toDo) {
       const newLi = document.createElement('li');  //creating new li
       const checkbox = document.createElement('input');  //assign the toDo's title text to the li
-      const deleteButton = document.createElement('button');
+      // const deleteButton = document.createElement('button');
       checkbox.type = "checkbox";
 
 
       newLi.textContent = toDo.title;
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
-      newLi.appendChild(deleteButton);
+      // newLi.appendChild(deleteButton);
 
     });
   }
 
-  addToDoForm.addEventListener('submit', event => {
+  addToDoForm.addEventListener('submit', function(event) {
     event.preventDefault();
     createNewToDo();
-
-  });
-
-  deleteButton.addEventListener('click', event => {
-    event.preventDefault();
-
-    const toRemoveId = 1;
-    const filteredTodos = toDos.filter(toDo => toDo.id !== toRemoveId);
-
-
-  });
-
-  submitButton.addEventListener('submit', event => {
+    newToDoText = '';
     renderTheUI();
-    });
-
-}
-
-
-
-
-
-// window.onload = function() {
-//   onReady();
+  });
+//   deleteButton.addEventListener('click', event => {
+//     event.preventDefault();
+//
+//     const toRemoveId = 1;
+//     const filteredTodos = toDos.filter(toDo => toDo.id !== toRemoveId);
+//
+//
+//   });
+//
+//   submitButton.addEventListener('submit', event => {
+//     renderTheUI();
+//     });
+//
 // }
+
+
+
+
+
+window.onload = function() {
+  onReady();
+};
